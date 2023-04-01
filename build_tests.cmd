@@ -1,5 +1,7 @@
 
-echo "building library ..."
+echo "building tests ..."
+
+cd unit_tests
 
 echo FRSTPSRC: %FRSTPSRC%
 

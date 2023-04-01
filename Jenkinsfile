@@ -29,14 +29,23 @@ pipeline
 				}
 			}
 		}
-
-		stage('build')
+		stage('build library')
 		{
 			steps
 			{
-				dir('FRS_Utility_CPP')
+				dir('frs_utility_cpp')
 				{
 					bat 'build.cmd'
+				}
+			}
+		}
+		stage('build tests')
+		{
+			steps
+			{
+				dir('frs_utility_cpp')
+				{
+					bat 'build_tests.cmd'
 				}
 			}
 		}
@@ -44,9 +53,9 @@ pipeline
 		{
 			steps
 			{
-				dir('FRS_Utility_CPP')
+				dir('frs_utility_cpp')
 				{
-					bat 'test.cmd'
+					bat 'run_tests.cmd'
 				}
 			}
 		}
