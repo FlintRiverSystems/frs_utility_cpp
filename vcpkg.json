@@ -1,0 +1,12 @@
+{
+    "name": "frs-utility-cpp",
+    "version": "1.0.0",
+    "dependencies": [
+        "boost-filesystem",
+        "boost-date-time",
+        "boost-uuid",
+        "boost-bimap",
+        "boost-format",
+		"nlohmann-json"
+    ]
+}

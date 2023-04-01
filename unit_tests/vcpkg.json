@@ -1,0 +1,13 @@
+{
+    "name": "frs-utility-cpp-tests",
+    "version": "1.0.0",
+    "dependencies": [
+        "boost-filesystem",
+        "boost-date-time",
+        "boost-uuid",
+        "boost-bimap",
+        "boost-log",
+        "boost-test",
+		"nlohmann-json"
+    ]
+}
