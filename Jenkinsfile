@@ -49,7 +49,7 @@ pipeline
 				}
 			}
 		}
-		stage('test')
+		stage('run tests')
 		{
 			steps
 			{
