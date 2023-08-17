@@ -49,9 +49,9 @@ namespace date_helpers
 	auto make_ptime(int year, int month, int day, int hour, int min, int sec) -> boost::posix_time::ptime;
 
 	auto make_ptime(boost::posix_time::ptime date, int hour, int min, int sec) -> boost::posix_time::ptime;
-
 	auto make_ptime(boost::gregorian::date date, int hour, int min, int sec) -> boost::posix_time::ptime;
 
+	auto make_ptime(boost::posix_time::ptime date, std::string time_str) -> boost::posix_time::ptime;
 	auto make_ptime(boost::gregorian::date date, std::string time_str) -> boost::posix_time::ptime;
 
 	auto make_ptime(int year, int month, int day) -> boost::posix_time::ptime;
