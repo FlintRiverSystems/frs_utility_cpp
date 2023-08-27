@@ -132,6 +132,11 @@ auto FRS::utility::date_helpers::make_ptime(boost::gregorian::date date, int hou
 		time_duration(hour, min, sec));
 }
 
+auto FRS::utility::date_helpers::make_ptime(boost::gregorian::date date, boost::posix_time::time_duration tod) -> boost::posix_time::ptime
+{
+	return ptime(date, tod);
+}
+
 auto FRS::utility::date_helpers::make_ptime(boost::posix_time::ptime date, std::string time_str) -> boost::posix_time::ptime
 {
 	return ptime(date.date(), duration_from_string(time_str));
