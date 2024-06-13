@@ -31,8 +31,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_executable(${PROJECT_NAME})
 
-find_package (Boost REQUIRED COMPONENTS filesystem date_time log unit_test_framework)
-target_link_libraries(${PROJECT_NAME} PRIVATE Boost::boost Boost::log Boost::unit_test_framework)
+find_package (Boost REQUIRED COMPONENTS filesystem date_time log log_setup unit_test_framework)
+target_link_libraries(${PROJECT_NAME} PRIVATE Boost::boost Boost::log Boost::log_setup Boost::unit_test_framework)
 
 add_subdirectory(.. frs_utility_cpp)
 target_link_libraries(${PROJECT_NAME} PUBLIC frs_utility_cpp)

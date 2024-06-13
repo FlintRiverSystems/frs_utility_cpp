@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "dependencies": [
         "boost-filesystem",
+        "boost-format",
         "boost-date-time",
         "boost-uuid",
         "boost-bimap",
