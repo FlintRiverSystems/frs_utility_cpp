@@ -169,6 +169,11 @@ class str_ci_less_than : public std::less<std::string>
 		}
 };
 
+/* codecvt_utf8 is deprecated and this code
+ * doesn't even work correctly on linux because
+ * wchar_t is 4 bytes...
+ */
+#if 0
 /***************************************************/
 /* From https://stackoverflow.com/a/18374698/70964 */
 
@@ -189,6 +194,7 @@ inline std::string ws2s(const std::wstring& wstr)
 }
 
 /***************************************************/
+#endif
 
 }}
 
