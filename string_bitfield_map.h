@@ -61,8 +61,9 @@ public:
 	/* generate a bitmask for the given strings, support "-XXX" for disabling a bit */
 	auto generate_bitmask (const std::vector<std::string> strs) const -> boost::dynamic_bitset<>;
 
-	auto full_bitmask () const -> boost::dynamic_bitset<>
-	;
+	auto full_bitmask () const -> boost::dynamic_bitset<>;
+
+	auto max_string_width() const -> size_t;
 
 protected:
 	unsigned _max_bitfield_size;

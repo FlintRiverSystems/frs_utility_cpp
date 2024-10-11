@@ -1,6 +1,8 @@
 
 #include "string_bitfield_map.h"
 
+#include <ranges>
+
 using namespace boost;
 using namespace FRS::utility;
 
@@ -236,4 +238,10 @@ auto string_bitfield_map::full_bitmask() const -> boost::dynamic_bitset<>
 		result |= kv.first;
 
 	return result;
+}
+
+auto string_bitfield_map::max_string_width() const -> size_t
+{
+	auto r = _map.right | std::ranges::views::transform([](const auto& x) { return x.first.size(); });
+	return std::ranges::max(r);
 }
