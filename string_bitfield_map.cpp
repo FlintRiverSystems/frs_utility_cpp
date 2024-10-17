@@ -199,28 +199,32 @@ auto string_bitfield_map::generate_bitmask(const std::vector<std::string> strs) 
 
 	if (strs.empty()) return result;
 
+	/* add specified channels first */
 	for (auto& s : strs)
 	{
-		if (s[0] == '-')
-		{
-			std::string s1 = s.substr(1);
+		if (s[0] == '-') continue;
 
-			if (this->exists(s1) == false) continue;
+		if (this->exists(s) == false) continue;
 
-			/* if no bits are set, set them all and subtract */
-			if (result.none())
-				result = full_bitmask();
+		/* set given bit */
+		result |= _map.right.at(s);
+	}
 
-			/* unset given bit */
-			result &= ~_map.right.at(s1);
-		}
-		else
-		{
-			if (this->exists(s) == false) continue;
+	/* subtracted removed channels */
+	for (auto& s : strs)
+	{
+		if (s[0] != '-') continue;
 
-			/* set given bit */
-			result |= _map.right.at(s);
-		}
+		std::string s1 = s.substr(1);
+
+		/* if no bits are set, set them all and subtract */
+		if (result.none())
+			result = full_bitmask();
+
+		if (this->exists(s1) == false) continue;
+
+		/* unset given bit */
+		result &= ~_map.right.at(s1);
 	}
 
 	return result;
